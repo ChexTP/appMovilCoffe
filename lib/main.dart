@@ -1,3 +1,5 @@
+import 'package:app_movil_coffe/src/screens/home_screen.dart';
+import 'package:app_movil_coffe/src/screens/informe_screen.dart';
 import 'package:app_movil_coffe/src/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +12,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: LoginScreen(),
+        body: const InformeScreen(
+        ),
         ),
       );
     

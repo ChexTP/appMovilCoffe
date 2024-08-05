@@ -16,8 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
-        
+      children: [        
         Container(
           height: 500,
           width: double.infinity,
@@ -56,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         children: [
                           const Text(
-                            'Bienvenido de nuevo',
+                            'Bienvenido',
                             style:TextStyle(color:Color.fromARGB(255, 41, 28, 171),
                               fontSize: 26,
                               fontWeight: FontWeight.w500) ,),
