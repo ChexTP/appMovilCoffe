@@ -12,14 +12,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: const InformeScreen(
-        ),
-        ),
-      );
-    
+        body: HomeScreen(),
+      ),
+    );
   }
 }
