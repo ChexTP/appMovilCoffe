@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
                 radius: 90,
-                backgroundColor: Color.fromARGB(255, 41, 28, 171),
+                backgroundColor: const Color.fromARGB(255, 41, 28, 171),
                 child: Image.asset(
                   'assets/logo.png',
                   height: 120,
