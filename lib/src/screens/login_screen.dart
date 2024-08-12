@@ -80,7 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       borderRadius: BorderRadius.circular(10.0),
                                       borderSide: const BorderSide(color: Color.fromARGB(255, 41, 28, 171), width: 2.0), // Color del borde cuando está en foco
                                     ),
-                                    
                                     errorStyle:const  TextStyle(
                                       color: Colors.red,
                                       fontStyle: FontStyle.italic,
