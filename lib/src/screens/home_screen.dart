@@ -62,45 +62,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 410,
-              width: double.infinity,
-              padding: const EdgeInsets.all(20.0),
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(24, 146, 136, 136),
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-              ),
+            child: Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 20,
+                shrinkWrap: true,
                 children: maquina.map((maquina) => buildCard(maquina)).toList(),
               ),
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        index: _selecteIndex,
-        height: 60.0,
-        items: const [
-          Icon(
-            Icons.home_rounded,
-            size: 30,
-            color: Colors.white,
-          ),
-          Icon(Icons.phone, size: 30, color: Colors.white),
-          Icon(Icons.person, size: 30, color: Colors.white),
-        ],
-        color: const Color.fromARGB(255, 41, 28, 171),
-        backgroundColor: Colors.white,
-        animationCurve: Curves.easeInOut,
-        animationDuration: const Duration(milliseconds: 400),
-        onTap: (index) {
-          // setState(() {
-          //   index = _selecteIndex;
-          // });
-        },
       ),
     );
   }
