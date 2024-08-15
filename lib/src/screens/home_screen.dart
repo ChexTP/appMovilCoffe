@@ -69,8 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 20,
                   shrinkWrap: true,
-                  children:
-                      maquina.map((maquina) => buildCard(maquina)).toList(),
+                  children: maquina
+                      .map((maquina) => buildCard(maquina, true))
+                      .toList(),
                 ),
               ),
             ),

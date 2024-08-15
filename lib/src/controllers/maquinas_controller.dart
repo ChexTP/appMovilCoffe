@@ -19,6 +19,7 @@ class MaquinaService {
       } else {
         throw Exception('Error al obtener las máquinas');
       }
+      
     } catch (e) {
       throw Exception('Error de red: $e');
     }

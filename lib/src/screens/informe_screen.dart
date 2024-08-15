@@ -81,7 +81,16 @@ class _InformeScreenState extends State<InformeScreen> {
             key: _formKey, // Asocia la clave global al formulario.
             child: Column(
               children: [
+                const Text(
+                  "CREACION DEL PROCESO",
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 41, 28, 171),
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500),
+                ),
                 // Campo de texto para ingresar el origen del café.
+                const SizedBox(height: 25),
+
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: "Ingrese el tipo de cafe",
@@ -122,20 +131,21 @@ class _InformeScreenState extends State<InformeScreen> {
                   borderRadius: BorderRadius.circular(8),
                   autofocus: false,
                   value: cafe,
-                  style:
-                      const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 185, 182, 182)),
                   hint: const Text('Seleccione el tipo de café'),
                   items: tipoCafe.map<DropdownMenuItem<String>>((String valor) {
                     return DropdownMenuItem<String>(
                       value: valor,
                       child: Text(
                         valor,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.black54),
+                        style: const TextStyle(
+                            fontSize: 14, color: Colors.black54),
                       ),
                     );
                   }).toList(),
-                  onChanged: onChanged, // Función que maneja el cambio de valor.
+                  onChanged:
+                      onChanged, // Función que maneja el cambio de valor.
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color.fromARGB(129, 204, 197, 197),
@@ -197,8 +207,8 @@ class _InformeScreenState extends State<InformeScreen> {
                   borderRadius: BorderRadius.circular(8),
                   autofocus: false,
                   value: proceso,
-                  style:
-                      const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 185, 182, 182)),
                   hint: const Text('Seleccione el proceso'),
                   items:
                       tipoProceso.map<DropdownMenuItem<String>>((String valor) {
@@ -206,8 +216,8 @@ class _InformeScreenState extends State<InformeScreen> {
                       value: valor,
                       child: Text(
                         valor,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.black54),
+                        style: const TextStyle(
+                            fontSize: 14, color: Colors.black54),
                       ),
                     );
                   }).toList(),

@@ -1,3 +1,4 @@
+import 'package:app_movil_coffe/Animations/FadeAnimation.dart';
 import 'package:app_movil_coffe/src/controllers/login_controller.dart';
 import 'package:app_movil_coffe/src/models/usuario_model.dart';
 import 'package:app_movil_coffe/src/provider/user_provider.dart';
@@ -13,7 +14,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -65,77 +65,110 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [        
-        Container(
-          height: 500,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Color.fromARGB(255, 41, 28, 171),Color.fromARGB(255, 0, 0, 116)]),
-            // color: const Color.fromARGB(255, 41, 28, 171),
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40),bottomRight:Radius.circular(40) )),
+      children: [
+        FadeAnimation(
+          1.5,
+          Container(
+            height: 500,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 41, 28, 171),
+                  Color.fromARGB(255, 0, 0, 116)
+                ]),
+                // color: const Color.fromARGB(255, 41, 28, 171),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40))),
           ),
+        ),
         Positioned.fill(
           top: 110,
           child: Align(
             alignment: Alignment.topCenter,
-            child: Image.asset('assets/logo.png',scale: 0.9,)),
+            child: FadeAnimation(
+                1.5,
+                Image.asset(
+                  'assets/logo.png',
+                  scale: 0.9,
+                )),
           ),
+        ),
         Padding(
-          padding: const EdgeInsets.only(top: 350,left: 40,right: 40,bottom: 40),
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Colors.white,
-                  boxShadow: [BoxShadow(
-                    color: Colors.grey,
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    blurStyle: BlurStyle.normal,
-                    offset: Offset(0, 10)
-                  )],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 50),
-                  child: Center(
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        children: [
-                          const Text(
-                            'Bienvenido',
-                            style:TextStyle(color:Color.fromARGB(255, 41, 28, 171),
-                              fontSize: 26,
-                              fontWeight: FontWeight.w500) ,),
-                          const SizedBox(height: 30,), 
-                          TextFormField(
+            padding: const EdgeInsets.only(
+                top: 350, left: 40, right: 40, bottom: 40),
+            child: SafeArea(
+              child: FadeAnimation(
+                1.8,
+                SingleChildScrollView(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          blurStyle: BlurStyle.normal,
+                          offset: Offset(0, 10),
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 50),
+                      child: Center(
+                        child: Form(
+                            key: _formKey,
+                            child: Column(
+                              children: [
+                                const Text(
+                                  'Bienvenido',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 41, 28, 171),
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                TextFormField(
                                   controller: _emailController,
                                   style: const TextStyle(fontSize: 18),
                                   decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color.fromARGB(255, 239, 238, 238),
-                                    labelText: "Email",
-                                    labelStyle: const TextStyle(
-                                      // backgroundColor: Colors.white,
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.w700,
+                                      filled: true,
+                                      fillColor: const Color.fromARGB(
+                                          255, 239, 238, 238),
+                                      labelText: "Email",
+                                      labelStyle: const TextStyle(
+                                        // backgroundColor: Colors.white,
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                    hintStyle: const TextStyle(fontSize: 15),
-                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide.none),
-                                    floatingLabelBehavior: FloatingLabelBehavior.auto,
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      borderSide: const BorderSide(color: Color.fromARGB(255, 41, 28, 171), width: 2.0), // Color del borde cuando está en foco
-                                    ),
-                                    errorStyle:const  TextStyle(
-                                      color: Colors.red,
-                                      fontStyle: FontStyle.italic,
-                                      fontSize: 14.0)
-                                  ),
+                                      hintStyle: const TextStyle(fontSize: 15),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          borderSide: BorderSide.none),
+                                      floatingLabelBehavior:
+                                          FloatingLabelBehavior.auto,
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        borderSide: const BorderSide(
+                                            color: Color.fromARGB(
+                                                255, 41, 28, 171),
+                                            width:
+                                                2.0), // Color del borde cuando está en foco
+                                      ),
+                                      errorStyle: const TextStyle(
+                                          color: Colors.red,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 14.0)),
                                   validator: (value) {
-                                    if(value == null || value.isEmpty){
+                                    if (value == null || value.isEmpty) {
                                       return "email requerido";
                                     }
                                     return null;
@@ -252,7 +285,7 @@ class _LoginScreenState extends State<LoginScreen> {
         )
           // child: Image.asset('assets/logo.png')),
         
-      ],
+    )],
     );
   }
 }

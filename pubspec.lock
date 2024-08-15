@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -89,6 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  fl_chart:
+    dependency: "direct main"
+    description:
+      name: fl_chart
+      sha256: d0f0d49112f2f4b192481c16d05b6418bd7820e021e265a3c22db98acf7ed7fb
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.68.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -268,10 +284,10 @@ packages:
     dependency: "direct main"
     description:
       name: shared_preferences
-      sha256: c272f9cabca5a81adc9b0894381e9c1def363e980f960fa903c604c471b22f68
+      sha256: "746e5369a43170c25816cc472ee016d3a66bc13fcf430c0bc41ad7b4b2922051"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -320,6 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
+  simple_animations:
+    dependency: "direct main"
+    description:
+      name: simple_animations
+      sha256: "1ea7b93fb98e2a611b6865d632de55607b766328d14700143353129ee0559d3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.2"
   sky_engine:
     dependency: transitive
     description: flutter
