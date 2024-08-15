@@ -1,4 +1,5 @@
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
+import 'package:app_movil_coffe/src/Widgets/grafica_widget.dart';
 import 'package:flutter/material.dart';
 
 /// Pantalla principal que muestra el informe de la máquina.
@@ -213,8 +214,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       ],
                     ),
                     const SizedBox(height: 25),
-
+                    //Grafica Lineal
+                    const Column(children: [LinealCharts()]),
                     // Información sobre la humedad final del café.
+                    const SizedBox(
+                      height: 25,
+                    ),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

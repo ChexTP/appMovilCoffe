@@ -1,6 +1,7 @@
 import 'package:app_movil_coffe/src/screens/home_screen.dart';
 import 'package:app_movil_coffe/src/screens/informe_maquina_screen.dart';
 import 'package:app_movil_coffe/src/screens/informe_screen.dart';
+import 'package:app_movil_coffe/src/screens/login_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: InformeMaquinaScreen(),
+        body: HomeScreen(),
       ),
     );
   }
