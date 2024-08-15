@@ -1,3 +1,5 @@
+import 'package:app_movil_coffe/src/controllers/login_controller.dart';
+import 'package:app_movil_coffe/src/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,6 +14,46 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  var _obscureText = true;
+
+  void _login() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    AuthService authService = AuthService();
+    final response = await authService.login(email, password);
+
+    if (response['success']) {
+      // Si el login es exitoso, navega a la nueva pantalla con animación
+      final user = response['user'];
+
+      // Navegar a la siguiente pantalla con la animación Slide
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => MainScreen(userData: user),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0); // Comienza desde la derecha
+            const end = Offset.zero; // Termina en la posición actual
+            const curve = Curves.ease;
+
+            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            var offsetAnimation = animation.drive(tween);
+
+            return SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            );
+          },
+        ),
+      );
+    } else {
+      // Mostrar un mensaje de error si la autenticación falla
+      final message = response['message'];
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                           const SizedBox(height: 30,),      
                           TextFormField(
-                            controller: _emailController,
+                            controller: _passwordController,
                             style: const TextStyle(fontSize: 18),
                             decoration: InputDecoration(
                               filled: true,
@@ -117,8 +159,19 @@ class _LoginScreenState extends State<LoginScreen> {
                               errorStyle:const  TextStyle(
                                 color: Colors.red,
                                 fontStyle: FontStyle.italic,
-                                fontSize: 14.0)
+                                fontSize: 14.0),
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState((){
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                                child: Icon(
+                                  _obscureText?Icons.visibility_off_outlined:Icons.visibility_outlined
+                                ),
+                              )
                             ),
+                            obscureText: _obscureText,
                             validator: (value) {
                               if(value == null || value.isEmpty){
                                 return "Contraseña requerida";
@@ -149,7 +202,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  // // Suponiendo que tienes una instancia de User llamada userData con los datos correctos
+                                  _login();
+                                  
                                   // User userData = User(name:_name, password: _password);
                 
                                   // // Navegación con transición Slide desde la derecha

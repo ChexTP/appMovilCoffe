@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: InformeMaquinaScreen(),
+        body: LoginScreen(),
       ),
     );
   }

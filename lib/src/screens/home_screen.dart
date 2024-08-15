@@ -1,6 +1,5 @@
 import 'package:app_movil_coffe/src/Widgets/card_build.dart';
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final int _selecteIndex = 0;
+ 
   final List<String> maquina = ['M01', 'M02', 'M03', 'M04'];
 
   @override

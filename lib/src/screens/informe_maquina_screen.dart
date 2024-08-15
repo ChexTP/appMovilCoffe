@@ -1,5 +1,5 @@
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
-import 'package:app_movil_coffe/src/Widgets/grafica_lineal.dart';
+// import 'package:app_movil_coffe/src/Widgets/grafica_lineal.dart';
 import 'package:flutter/material.dart';
 
 class InformeMaquinaScreen extends StatefulWidget {
