@@ -1,9 +1,10 @@
+import 'package:app_movil_coffe/src/models/usuario_model.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-  final Map<String, dynamic> userData;
+  final Usuario usuario;
 
-  MainScreen({required this.userData});
+  MainScreen({required this.usuario});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class MainScreen extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Text('Bienvenido, ${userData['nombreCompleto']}!'),
+        child: Text('Bienvenido, ${usuario.tipoUsuario}'),
       ),
     );
   }

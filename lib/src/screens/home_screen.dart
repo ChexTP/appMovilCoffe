@@ -1,5 +1,6 @@
 import 'package:app_movil_coffe/src/Widgets/card_build.dart';
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
- 
+  final int _selecteIndex = 0;
   final List<String> maquina = ['M01', 'M02', 'M03', 'M04'];
 
   @override
@@ -43,35 +44,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 90,
-                backgroundColor: const Color.fromARGB(255, 41, 28, 171),
-                child: Image.asset(
-                  'assets/logo.png',
-                  height: 120,
-                  width: 120,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 90,
+                  backgroundColor: const Color.fromARGB(255, 41, 28, 171),
+                  child: Image.asset(
+                    'assets/logo.png',
+                    height: 120,
+                    width: 120,
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 20,
-                shrinkWrap: true,
-                children: maquina.map((maquina) => buildCard(maquina)).toList(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 20,
+                  shrinkWrap: true,
+                  children:
+                      maquina.map((maquina) => buildCard(maquina)).toList(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

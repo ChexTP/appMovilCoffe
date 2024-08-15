@@ -34,7 +34,7 @@ class Usuario {
       direccion: json['direccion'],
       email: json['email'],
       estado: json['estado'],
-      foto: json['foto'],
+      foto: json['foto'] ,
       tipoUsuario: json['tipoUsuario'],
     );
   }

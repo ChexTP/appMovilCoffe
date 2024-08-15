@@ -1,6 +1,9 @@
 import 'package:app_movil_coffe/src/controllers/login_controller.dart';
-import 'package:app_movil_coffe/src/screens/main_screen.dart';
+import 'package:app_movil_coffe/src/models/usuario_model.dart';
+import 'package:app_movil_coffe/src/provider/user_provider.dart';
+import 'package:app_movil_coffe/src/screens/usuario_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,11 +29,15 @@ class _LoginScreenState extends State<LoginScreen> {
     if (response['success']) {
       // Si el login es exitoso, navega a la nueva pantalla con animación
       final user = response['user'];
+      final usuario = Usuario.fromJson(user);
+
+      // Guarda el usuario en UserProvider
+      Provider.of<UserProvider>(context, listen: false).setUser(usuario);
 
       // Navegar a la siguiente pantalla con la animación Slide
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => MainScreen(userData: user),
+          pageBuilder: (context, animation, secondaryAnimation) => UsuarioScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(1.0, 0.0); // Comienza desde la derecha
             const end = Offset.zero; // Termina en la posición actual
