@@ -81,9 +81,9 @@ class _InformeScreenState extends State<InformeScreen> {
             key: _formKey, // Asocia la clave global al formulario.
             child: Column(
               children: [
-                Text(
+                const Text(
                   "CREACION DEL PROCESO",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Color.fromARGB(255, 41, 28, 171),
                       fontSize: 22,
                       fontWeight: FontWeight.w500),
