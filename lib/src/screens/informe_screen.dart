@@ -74,222 +74,224 @@ class _InformeScreenState extends State<InformeScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(42.0),
-        child: Form(
-          key: _formKey, // Asocia la clave global al formulario.
-          child: Column(
-            children: [
-              // Campo de texto para ingresar el origen del café.
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Ingrese el tipo de cafe",
-                  hintStyle:
-                      const TextStyle(fontSize: 14, color: Colors.black54),
-                  filled: true,
-                  fillColor: const Color.fromARGB(129, 204, 197, 197),
-                  labelText: "Origen del café",
-                  labelStyle:
-                      const TextStyle(fontSize: 14, color: Colors.black54),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(42.0),
+          child: Form(
+            key: _formKey, // Asocia la clave global al formulario.
+            child: Column(
+              children: [
+                // Campo de texto para ingresar el origen del café.
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Ingrese el tipo de cafe",
+                    hintStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black54),
+                    filled: true,
+                    fillColor: const Color.fromARGB(129, 204, 197, 197),
+                    labelText: "Origen del café",
+                    labelStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black54),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 25),
-              // Campo desplegable para seleccionar el tipo de café.
-              DropdownButtonFormField<String>(
-                icon: const Icon(Icons.arrow_drop_down_circle_sharp),
-                borderRadius: BorderRadius.circular(8),
-                autofocus: false,
-                value: cafe,
-                style:
-                    const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
-                hint: const Text('Seleccione el tipo de café'),
-                items: tipoCafe.map<DropdownMenuItem<String>>((String valor) {
-                  return DropdownMenuItem<String>(
-                    value: valor,
-                    child: Text(
-                      valor,
-                      style:
-                          const TextStyle(fontSize: 14, color: Colors.black54),
-                    ),
-                  );
-                }).toList(),
-                onChanged: onChanged, // Función que maneja el cambio de valor.
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(129, 204, 197, 197),
-                  labelText: 'Tipo de café',
-                  labelStyle:
-                      const TextStyle(fontSize: 14, color: Colors.black54),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 1.0, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 25),
-              // Campo de texto multilínea para ingresar una descripción.
-              TextFormField(
-                maxLines: null,
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(129, 204, 197, 197),
-                  labelText: "Descripción",
-                  labelStyle:
-                      const TextStyle(fontSize: 14, color: Colors.black54),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 25),
-              // Campo desplegable para seleccionar el tipo de proceso.
-              DropdownButtonFormField<String>(
-                icon: const Icon(Icons.arrow_drop_down_circle_sharp),
-                borderRadius: BorderRadius.circular(8),
-                autofocus: false,
-                value: proceso,
-                style:
-                    const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
-                hint: const Text('Seleccione el proceso'),
-                items:
-                    tipoProceso.map<DropdownMenuItem<String>>((String valor) {
-                  return DropdownMenuItem<String>(
-                    value: valor,
-                    child: Text(
-                      valor,
-                      style:
-                          const TextStyle(fontSize: 14, color: Colors.black54),
+                const SizedBox(height: 25),
+                // Campo desplegable para seleccionar el tipo de café.
+                DropdownButtonFormField<String>(
+                  icon: const Icon(Icons.arrow_drop_down_circle_sharp),
+                  borderRadius: BorderRadius.circular(8),
+                  autofocus: false,
+                  value: cafe,
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
+                  hint: const Text('Seleccione el tipo de café'),
+                  items: tipoCafe.map<DropdownMenuItem<String>>((String valor) {
+                    return DropdownMenuItem<String>(
+                      value: valor,
+                      child: Text(
+                        valor,
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black54),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: onChanged, // Función que maneja el cambio de valor.
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(129, 204, 197, 197),
+                    labelText: 'Tipo de café',
+                    labelStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black54),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1.0, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  );
-                }).toList(),
-                onChanged:
-                    onChangedProceso, // Función que maneja el cambio de valor.
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(129, 204, 197, 197),
-                  labelText: 'Tipo de proceso',
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 1.0, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 25),
-              // Campo de texto para ingresar el peso del café.
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(129, 204, 197, 197),
-                  labelText: "Peso del café (Kg)",
-                  labelStyle:
-                      const TextStyle(fontSize: 14, color: Colors.black54),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                const SizedBox(height: 25),
+                // Campo de texto multilínea para ingresar una descripción.
+                TextFormField(
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(129, 204, 197, 197),
+                    labelText: "Descripción",
+                    labelStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black54),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      width: 1.0,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 90,
-                  child: CircleAvatar(
-                    radius: 120,
-                    backgroundColor: const Color.fromARGB(255, 41, 28, 171),
-                    child: Center(
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.power_settings_new_rounded,
-                          color: Colors.white,
-                          size: 48,
+                const SizedBox(height: 25),
+                // Campo desplegable para seleccionar el tipo de proceso.
+                DropdownButtonFormField<String>(
+                  icon: const Icon(Icons.arrow_drop_down_circle_sharp),
+                  borderRadius: BorderRadius.circular(8),
+                  autofocus: false,
+                  value: proceso,
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 185, 182, 182)),
+                  hint: const Text('Seleccione el proceso'),
+                  items:
+                      tipoProceso.map<DropdownMenuItem<String>>((String valor) {
+                    return DropdownMenuItem<String>(
+                      value: valor,
+                      child: Text(
+                        valor,
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black54),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged:
+                      onChangedProceso, // Función que maneja el cambio de valor.
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(129, 204, 197, 197),
+                    labelText: 'Tipo de proceso',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1.0, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 25),
+                // Campo de texto para ingresar el peso del café.
+                TextFormField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color.fromARGB(129, 204, 197, 197),
+                    labelText: "Peso del café (Kg)",
+                    labelStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black54),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 90,
+                    child: CircleAvatar(
+                      radius: 120,
+                      backgroundColor: const Color.fromARGB(255, 41, 28, 171),
+                      child: Center(
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.power_settings_new_rounded,
+                            color: Colors.white,
+                            size: 48,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

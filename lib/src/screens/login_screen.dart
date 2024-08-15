@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                           const SizedBox(height: 30,),      
                           TextFormField(
-                            controller: _emailController,
+                            controller: _passwordController,
                             style: const TextStyle(fontSize: 18),
                             decoration: InputDecoration(
                               filled: true,
