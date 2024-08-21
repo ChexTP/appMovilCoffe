@@ -1,8 +1,14 @@
 // import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
 // class SeguimientoScreen extends StatefulWidget {
 //   const SeguimientoScreen({super.key});
+// class SeguimientoScreen extends StatefulWidget {
+//   const SeguimientoScreen({super.key});
 
+//   @override
+//   State<SeguimientoScreen> createState() => _SeguimientoScreenState();
+// }
 //   @override
 //   State<SeguimientoScreen> createState() => _SeguimientoScreenState();
 // }
@@ -38,4 +44,4 @@
 //       ),
 //     );
 //   }
-
+// }

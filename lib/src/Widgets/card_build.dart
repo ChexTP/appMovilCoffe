@@ -39,11 +39,15 @@ Card buildCard(String title, bool isActive) {
             ],
           ),
           Positioned(
-            top: 80,
-            right: 60,
+            top: 88,
+            right: 63,
             child: CircleAvatar(
-              radius: 10,
-              backgroundColor: isActive ? Colors.green : Colors.grey,
+              radius: 13,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 10,
+                backgroundColor: isActive ? Colors.green : Colors.grey,
+              ),
             ),
           ),
         ],

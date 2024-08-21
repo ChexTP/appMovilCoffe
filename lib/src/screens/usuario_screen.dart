@@ -1,62 +1,71 @@
-// import 'package:flutter/material.dart';
 
-// class SeguimientoScreen extends StatefulWidget {
-//   const SeguimientoScreen({super.key});
+import 'package:app_movil_coffe/src/provider/user_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-//   @override
-//   State<SeguimientoScreen> createState() => _SeguimientoScreenState();
-// 
+class UsuarioScreen extends StatefulWidget {
 
-// class _SeguimientoScreenState extends State<SeguimientoScreen> {
-//   final Usuario usuario;
+  
+  
+  const UsuarioScreen({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         body: Card(
-//           child: ListView(
-//           padding: EdgeInsets.all(16.0),
-//           children: [
-//             CircleAvatar(
-//               radius: 50,
-//               backgroundImage: NetworkImage(usuario.fotoUrl),
-//             ),
-//             SizedBox(height: 20),
-//             ListTile(
-//               title: Text('Username'),
-//               subtitle: Text(usuario.username),
-//             ),
-//             ListTile(
-//               title: Text('Cédula'),
-//               subtitle: Text(usuario.cedula),
-//             ),
-//             ListTile(
-//               title: Text('Nombre Completo'),
-//               subtitle: Text(usuario.nombreCompleto),
-//             ),
-//             ListTile(
-//               title: Text('Teléfono'),
-//               subtitle: Text(usuario.telefono),
-//             ),
-//             ListTile(
-//               title: Text('Dirección'),
-//               subtitle: Text(usuario.direccion),
-//             ),
-//             ListTile(
-//               title: Text('Email'),
-//               subtitle: Text(usuario.email),
-//             ),
-//             ListTile(
-//               title: Text('Estado'),
-//               subtitle: Text(usuario.estado ? 'Activo' : 'Inactivo'),
-//             ),
-//             ListTile(
-//               title: Text('Tipo de Usuario'),
-//               subtitle: Text(usuario.tipoUsuario),
-//             ),
-//           ],
-//                 ),
-//         ),
-//     );
-//   }
-// }
+  @override
+  State<UsuarioScreen> createState() => _UsuarioScreenState();
+}
+
+class _UsuarioScreenState extends State<UsuarioScreen> {
+  
+
+  @override
+  Widget build(BuildContext context) {
+
+    final usuario = Provider.of<UserProvider>(context).user;
+
+    return Scaffold(
+        body: Card(
+          child: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            const CircleAvatar(
+              radius: 50,
+              // backgroundImage: NetworkImage(usuario.foto.url),
+            ),
+            const SizedBox(height: 20),
+            ListTile(
+              title: const Text('Username'),
+              subtitle: Text(usuario!.username),
+            ),
+            ListTile(
+              title: const Text('Cédula'),
+              subtitle: Text(usuario.cedula),
+            ),
+            ListTile(
+              title: const Text('Nombre Completo'),
+              subtitle: Text(usuario.nombreCompleto),
+            ),
+            ListTile(
+              title: const Text('Teléfono'),
+              subtitle: Text(usuario.telefono),
+            ),
+            ListTile(
+              title: const Text('Dirección'),
+              subtitle: Text(usuario.direccion),
+            ),
+            ListTile(
+              title: const Text('Email'),
+              subtitle: Text(usuario.email),
+            ),
+            ListTile(
+              title: const Text('Estado'),
+              subtitle: Text(usuario.estado ? 'Activo' : 'Inactivo'),
+            ),
+            ListTile(
+              title: const Text('Tipo de Usuario'),
+              subtitle: Text(usuario.tipoUsuario),
+            ),
+          ],
+                ),
+        ),
+    );
+  }
+}

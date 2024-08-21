@@ -1,6 +1,8 @@
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
 import 'package:app_movil_coffe/src/Widgets/grafica_widget.dart';
+import 'package:app_movil_coffe/src/provider/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /// Pantalla principal que muestra el informe de la máquina.
 class InformeMaquinaScreen extends StatefulWidget {
@@ -18,6 +20,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final usuario = Provider.of<UserProvider>(context).user;
     return Scaffold(
         // AppBar personalizado con una curva en la parte inferior.
         appBar: PreferredSize(
@@ -27,13 +30,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
             child: AppBar(
               toolbarHeight: 60,
               shadowColor: Colors.grey,
+              scrolledUnderElevation: 20.0,
               backgroundColor: const Color.fromARGB(255, 41, 28, 171),
-              title: const Padding(
-                padding: EdgeInsets.only(top: 35),
-                child: Text(
-                  'Buenos días, Maria Peralta!',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                ),
+              title: const Text(
+                'Buenos días, Maria Peralta!',
+                // usuario!.nombreCompleto,
+                style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               actions: [
                 Padding(
