@@ -2,6 +2,7 @@ import 'package:app_movil_coffe/Animations/FadeAnimation.dart';
 import 'package:app_movil_coffe/src/controllers/login_controller.dart';
 import 'package:app_movil_coffe/src/models/usuario_model.dart';
 import 'package:app_movil_coffe/src/provider/user_provider.dart';
+import 'package:app_movil_coffe/src/screens/home_screen.dart';
 import 'package:app_movil_coffe/src/screens/usuario_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Navegar a la siguiente pantalla con la animación Slide
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => UsuarioScreen(),
+          pageBuilder: (context, animation, secondaryAnimation) => HomeScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(1.0, 0.0); // Comienza desde la derecha
             const end = Offset.zero; // Termina en la posición actual

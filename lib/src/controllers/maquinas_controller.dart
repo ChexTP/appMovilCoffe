@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 class MaquinaService {
-  final String baseUrl = 'http://10.0.2.2:8000/api'; // Reemplaza <TU_IP> con la dirección IP de tu servidor
+  final String baseUrl = 'https://proyecto-sena-backend-s666.onrender.com/api'; // Reemplaza <TU_IP> con la dirección IP de tu servidor
 
   Future<List<Maquina>> getAllMaquinas() async {
     try {

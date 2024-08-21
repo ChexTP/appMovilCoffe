@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'package:app_movil_coffe/src/screens/login_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  final String baseUrl = "http://10.0.2.2:8000/api"; // Cambia esto por la URL de tu backend
+  final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api"; // Cambia esto por la URL de tu backend
 
   // Método para iniciar sesión
   Future<Map<String, dynamic>> login(String email, String password) async {
@@ -66,9 +68,12 @@ class AuthService {
     return prefs.getString('auth_token');
   }
 
-  // Método para eliminar el token (por ejemplo, al cerrar sesión)
-  Future<void> logout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('auth_token');
-  }
+  // Método para eliminar el token 
+  Future<void> logout(BuildContext context) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.remove('auth_token');
+
+  // Navegar a la pantalla de login y eliminar todas las pantallas anteriores
+  
+}
 }
