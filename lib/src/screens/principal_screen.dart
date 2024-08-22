@@ -35,30 +35,33 @@ class _PrincipalScreenState extends State<PrincipalScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 41, 28, 171),
-            Color.fromARGB(255, 0, 0, 116)
-          ], begin: Alignment.topRight, end: Alignment.bottomLeft),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Positioned.fill(
-              top: 110,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: FadeAnimation(
-                    1.5,
-                    Image.asset(
-                      'assets/logo.png',
-                      scale: 0.9,
-                    )),
+      body: FadeAnimation(
+        1.2,
+        Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color.fromARGB(255, 41, 28, 171),
+              Color.fromARGB(255, 0, 0, 116)
+            ], begin: Alignment.topRight, end: Alignment.bottomLeft),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Positioned.fill(
+                top: 110,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: FadeAnimation(
+                      1.5,
+                      Image.asset(
+                        'assets/logo.png',
+                        scale: 0.9,
+                      )),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

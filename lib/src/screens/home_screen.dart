@@ -70,7 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   // await authService.logout(context);
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
                     (Route<dynamic> route) =>
                         false, // Esto eliminará todas las pantallas anteriores
                   );
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(20.0),
                         child: ShaderMask(
                           shaderCallback: (Rect bounds) {
-                            return LinearGradient(
+                            return const LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Colors.black,
                                 Colors.black,
                               ],
-                              stops: const [0.0, 0.1, 0.9, 1.0],
+                              stops: [0.0, 0.1, 0.9, 1.0],
                             ).createShader(bounds);
                           },
                           blendMode: BlendMode.dstIn,
