@@ -3,7 +3,6 @@ import 'package:app_movil_coffe/src/screens/home_screen.dart';
 import 'package:app_movil_coffe/src/screens/informe_maquina_screen.dart';
 import 'package:app_movil_coffe/src/screens/informe_screen.dart';
 import 'package:app_movil_coffe/src/screens/login_screen.dart';
-import 'package:app_movil_coffe/src/screens/maquina_screens.dart';
 import 'package:app_movil_coffe/src/screens/principal_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -24,6 +23,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: PrincipalScreen());
+        debugShowCheckedModeBanner: false, home: LoginScreen());
   }
 }

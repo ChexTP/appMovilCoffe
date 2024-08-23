@@ -38,10 +38,10 @@ class _MaquinaScreenState extends State<MaquinaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Máquinas'),
+        title: const Text('Máquinas'),
       ),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: maquinas.length,
               itemBuilder: (context, index) {

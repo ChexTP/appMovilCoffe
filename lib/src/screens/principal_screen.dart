@@ -41,8 +41,8 @@ class _PrincipalScreenState extends State<PrincipalScreen>
           width: double.infinity,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 41, 28, 171),
-              Color.fromARGB(255, 0, 0, 116)
+              Color.fromARGB(255, 30, 30, 30),
+              Color.fromARGB(255, 139, 17, 226),
             ], begin: Alignment.topRight, end: Alignment.bottomLeft),
           ),
           child: Column(
