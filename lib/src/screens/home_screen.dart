@@ -3,6 +3,8 @@ import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
 import 'package:app_movil_coffe/src/controllers/maquinas_controller.dart';
 import 'package:app_movil_coffe/src/models/maquina_model.dart';
 import 'package:app_movil_coffe/src/provider/user_provider.dart';
+import 'package:app_movil_coffe/src/screens/formulario_proceso_screen.dart';
+import 'package:app_movil_coffe/src/screens/informe_maquina_screen.dart';
 import 'package:app_movil_coffe/src/screens/login_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -135,9 +137,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemCount: maquinas.length,
                             itemBuilder: (context, index) {
                               final maquina = maquinas[index];
-                              return buildCard(
-                                maquina.nombre,
-                                maquina.estado == 'Activo',
+                              return GestureDetector(
+                                onTap: (){
+                                  if (maquina.estado=='Activo') {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeMaquinaScreen(maquina:maquina)));
+                                  } else {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeScreen(maquina:maquina)));
+                                  }
+                                  
+                                },
+                                child: buildCard(
+                                  
+                                  maquina.nombre,
+                                  maquina.estado == 'Activo',
+                                ),
                               );
                             },
                           ),
