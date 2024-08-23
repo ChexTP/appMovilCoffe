@@ -22,9 +22,9 @@ class LoteCafe {
     return LoteCafe(
       id: json['_id'], 
       peso: json['peso'].toDouble(),
-      proveedor: json['proveedor'],
-      tipoProceso: json['tipoProceso'],
-      variedad: json['variedad'],
+      proveedor: Usuario.fromJson(json['proveedor']),
+      tipoProceso: TipoProceso.fromJson(json['tipoProceso']),
+      variedad: Variedad.fromJson(json['variedad']),
     );
   }
 }

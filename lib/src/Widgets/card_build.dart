@@ -11,47 +11,44 @@ Card buildCard(String title, bool isActive) {
     ),
     margin: const EdgeInsets.all(8),
     elevation: 6,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Stack(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.settings_sharp),
-                  color: const Color.fromARGB(235, 34, 3, 207),
-                  iconSize: 60,
-                ),
+    child:  Stack(
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                
+                Icons.settings_sharp,
+                color: Color.fromARGB(235, 34, 3, 207),
+                size: 60,)
               ),
-              Center(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Color.fromARGB(235, 34, 3, 207),
-                  ),
+            
+            Center(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Color.fromARGB(235, 34, 3, 207),
                 ),
-              ),
-            ],
-          ),
-          Positioned(
-            top: 88,
-            right: 63,
-            child: CircleAvatar(
-              radius: 13,
-              backgroundColor: Colors.white,
-              child: CircleAvatar(
-                radius: 10,
-                backgroundColor: isActive ? Colors.green : Colors.grey,
               ),
             ),
+          ],
+        ),
+        Positioned(
+          top: 88,
+          right: 63,
+          child: CircleAvatar(
+            radius: 13,
+            backgroundColor: Colors.white,
+            child: CircleAvatar(
+              radius: 10,
+              backgroundColor: isActive ? Colors.green : Colors.grey,
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
 }

@@ -1,9 +1,11 @@
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
+import 'package:app_movil_coffe/src/models/maquina_model.dart';
 import 'package:flutter/material.dart';
 
 // Pantalla principal del informe.
 class InformeScreen extends StatefulWidget {
-  const InformeScreen({super.key});
+  final Maquina maquina;
+  const InformeScreen({super.key, required this.maquina});
 
   @override
   State<InformeScreen> createState() => _InformeScreenState();

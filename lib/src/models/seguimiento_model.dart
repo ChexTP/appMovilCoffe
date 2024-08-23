@@ -22,13 +22,16 @@ class Seguimiento {
 
   // Método para crear una instancia de Seguimiento a partir de un JSON
   factory Seguimiento.fromJson(Map<String, dynamic> json) {
+    print(json);
     return Seguimiento(
       id: json['_id'],
-      maquina: json['maquina'],
+      maquina: Maquina.fromJson(json['maquina']),
+      loteCafe: LoteCafe.fromJson(json['loteCafe']),
+      operador: Usuario.fromJson(json['operador']),
+      datos: List<Datos>.from(
+        json['datos'].map((dato) => Datos.fromJson(dato)),
+      ),
       fecha: DateTime.parse(json['fecha']),
-      loteCafe: json['loteCafe'],
-      operador: json['operador'],
-      datos: List<Datos>.from(json['datos']),
     );
   }
 

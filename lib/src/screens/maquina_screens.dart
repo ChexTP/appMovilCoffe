@@ -2,7 +2,6 @@ import 'package:app_movil_coffe/src/controllers/maquinas_controller.dart';
 import 'package:app_movil_coffe/src/models/maquina_model.dart';
 import 'package:flutter/material.dart';
 
-
 class MaquinaScreen extends StatefulWidget {
   @override
   _MaquinaScreenState createState() => _MaquinaScreenState();
