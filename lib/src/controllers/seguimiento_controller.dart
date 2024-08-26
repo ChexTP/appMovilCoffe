@@ -15,6 +15,7 @@ class SeguimientoController {
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         final seguimientoData = jsonData['data']; // Acceder a la clave "data"
+        print(seguimientoData);
         return Seguimiento.fromJson(seguimientoData);
       } else {
         throw Exception('Error al obtener seguimiento por maquina: ${response.statusCode}');
