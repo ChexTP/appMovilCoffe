@@ -235,6 +235,7 @@ class _InformeScreenState extends State<InformeScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 25),
 
                 // Campo de texto multilínea para ingresar una descripción.
                 TextFormField(
