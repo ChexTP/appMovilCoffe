@@ -102,41 +102,19 @@ class _InformeScreenState extends State<InformeScreen> {
                 // Campo de texto para ingresar el origen del café.
                 const SizedBox(height: 25),
 
-                DropdownButtonFormField<String>(
-                  icon: const Icon(Icons.arrow_drop_down_circle_sharp),
-                  borderRadius: BorderRadius.circular(8),
-                  autofocus: false,
-                  value: origen,
-                  style: const TextStyle(
-                    color: Color.fromARGB(255, 211, 8, 8),
-                    fontSize: 20,
-                  ),
-                  hint: const Text('Seleccione origen del café'),
-                  items:
-                      origenCafe.map<DropdownMenuItem<String>>((String valor) {
-                    return DropdownMenuItem<String>(
-                      value: valor,
-                      child: Text(
-                        valor,
-                        style: const TextStyle(
-                            fontSize: 14, color: Colors.black54),
-                      ),
-                    );
-                  }).toList(),
-                  onChanged:
-                      onChanged, // Función que maneja el cambio de valor.
+                TextFormField(
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color.fromARGB(129, 204, 197, 197),
-                    labelText: 'Origen del café',
+                    labelText: "Origen del café",
                     labelStyle:
                         const TextStyle(fontSize: 20, color: Colors.black54),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 185, 182, 182),
                         width: 1.0,
-                        color: Color.fromARGB(255, 41, 28, 171),
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
@@ -187,7 +165,7 @@ class _InformeScreenState extends State<InformeScreen> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 41, 28, 171),
+                        color: Color.fromARGB(255, 185, 182, 182),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -224,12 +202,10 @@ class _InformeScreenState extends State<InformeScreen> {
                     fillColor: const Color.fromARGB(129, 204, 197, 197),
                     labelText: 'variedad de café',
                     labelStyle:
-                        const TextStyle(fontSize: 22, color: Colors.black54),
+                        const TextStyle(fontSize: 20, color: Colors.black54),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 1.0,
-                        color: Color.fromARGB(255, 41, 28, 171),
-                      ),
+                      borderSide:
+                          const BorderSide(width: 1.0, color: Colors.grey),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -241,7 +217,7 @@ class _InformeScreenState extends State<InformeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 25),
+
                 // Campo de texto multilínea para ingresar una descripción.
                 TextFormField(
                   maxLines: null,
