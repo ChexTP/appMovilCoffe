@@ -1,4 +1,4 @@
-
+import 'package:app_movil_coffe/src/models/storage_model.dart';
 
 class Usuario {
   final String id; 
@@ -9,7 +9,7 @@ class Usuario {
   final String direccion;
   final String email;
   final bool estado;
-  final String? foto; // Puede ser nulo si no se proporciona
+  final Storage? foto; // Cambiamos a un objeto Storage
   final String tipoUsuario;
 
   Usuario({
@@ -21,7 +21,7 @@ class Usuario {
     required this.direccion,
     required this.email,
     required this.estado,
-    this.foto,
+    this.foto, // El campo foto ahora es opcional y es un objeto Storage
     required this.tipoUsuario,
   });
 
@@ -36,7 +36,7 @@ class Usuario {
       direccion: json['direccion'],
       email: json['email'],
       estado: json['estado'],
-      foto: json['foto'],
+      foto: json['foto'] != null ? Storage.fromJson(json['foto']) : null, // Aquí se maneja el mapeo del objeto 'foto'
       tipoUsuario: json['tipoUsuario'],
     );
   }
