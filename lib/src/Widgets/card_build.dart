@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 
-Card buildCard(String title, bool isActive) {
+Card buildCard(String title, String estado) {
+
+  Color colorEstado(String status) {
+  switch (status) {
+    case 'Activo':
+      return Colors.green;
+    case 'Inactivo':
+      return Colors.grey;
+    case 'En Mantenimiento':
+      return Colors.orange;
+    default:
+      return Colors.white; // Retorna un color por defecto si el estado no coincide
+  }
+}
+
+
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
@@ -44,7 +59,8 @@ Card buildCard(String title, bool isActive) {
             backgroundColor: Colors.white,
             child: CircleAvatar(
               radius: 10,
-              backgroundColor: isActive ? Colors.green : Colors.grey,
+              backgroundColor: colorEstado(estado),
+                
             ),
           ),
         ),

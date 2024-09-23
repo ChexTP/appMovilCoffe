@@ -44,7 +44,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
   Future<void> _fetchSeguimiento() async {
     try {
       final seguimientoData =
-          await SeguimientoController().getSeguimientoByMaquinaId(maquina.id);
+          await SeguimientoService().getSeguimientoByMaquinaId(maquina.id);
       setState(() {
         seguimiento = seguimientoData;
       });
@@ -157,13 +157,13 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     'Propietario:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.proveedor.nombreCompleto ??
                         'Cargando...',
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 25),
                   )
                 ],
               ),
@@ -174,12 +174,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     "Tipo café:",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.variedad.nombre ?? 'Cargando...',
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 25),
                   )
                 ],
               ),
@@ -187,15 +187,20 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
 
               // Información sobre el tipo de proceso.
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     "Tipo Proceso:",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    seguimiento?.loteCafe.tipoProceso.nombre ?? 'Cargando...',
-                    style: const TextStyle(fontSize: 18),
+                  Flexible(
+                    child: Text(
+                      seguimiento?.loteCafe.tipoProceso.nombre ?? 'Cargando...',
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                      style: const TextStyle(fontSize: 20),
+                    ),
                   )
                 ],
               ),
@@ -204,17 +209,24 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
               // Información sobre la fecha y hora de inicio del proceso.
               Row(
                 children: [
-                  const Text(
-                    "Fecha y hora de inicio de proceso:",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      
+                      const Text(
+                        "Fecha y hora de inicio de proceso:",
+                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        seguimiento != null
+                            ? '${seguimiento!.fecha.day}/${seguimiento!.fecha.month}/${seguimiento!.fecha.year} ${seguimiento!.fecha.hour}:${seguimiento!.fecha.minute}'
+                            : 'Cargando...',
+                        style: const TextStyle(fontSize: 25),
+                      )
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  Text(
-                    seguimiento != null
-                        ? '${seguimiento!.fecha.day}/${seguimiento!.fecha.month}/${seguimiento!.fecha.year} ${seguimiento!.fecha.hour}:${seguimiento!.fecha.minute}'
-                        : 'Cargando...',
-                    style: const TextStyle(fontSize: 17),
-                  )
+                  
                 ],
               ),
               const SizedBox(height: 35),
@@ -241,7 +253,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        "Temperatura relativa",
+                        "Temperatura ambiente",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
@@ -253,9 +265,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                           shape: BoxShape.circle,
                           color: Color.fromARGB(255, 18, 182, 23),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
-                            '00',
+                            seguimiento?.datos?.isNotEmpty == true
+                              ? seguimiento!.datos!.last.temperaturaAmbiente
+                              : '00',
+                            // seguimiento?.datos?.last.id,
                             style: TextStyle(fontSize: 25),
                           ),
                         ),
@@ -292,9 +307,11 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                           shape: BoxShape.circle,
                           color: Color.fromARGB(197, 26, 101, 231),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
-                            '00',
+                            seguimiento?.datos?.isNotEmpty == true
+                              ? seguimiento!.datos!.last.temperaturaSensor
+                              : '00',
                             style: TextStyle(fontSize: 25),
                           ),
                         ),
@@ -307,7 +324,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
 
               // Grafica Lineal
               // if (seguimiento != null)
-              const LinealCharts(),
+              LinealCharts(datos: seguimiento?.datos),
               const SizedBox(height: 25),
 
               // Switch para activar/desactivar el temporizador.

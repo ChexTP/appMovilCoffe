@@ -34,4 +34,39 @@ class LoteCafeService {
       throw Exception('Error de red: $e');
     }
   }
+
+  Future<String?> createLoteCafe(String? proveedor, String? tipoProceso, String? variedad, double? peso) async {
+  final url = Uri.parse('$baseUrl/loteCafe');
+
+  try {
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'proveedor': proveedor,
+        'tipoProceso': tipoProceso,
+        'variedad': variedad,
+        'peso': peso,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      // Parsear la respuesta
+      final responseData = jsonDecode(response.body);
+      // Extraer el _id
+      final loteCafeId = responseData['loteCafe']['_id'];
+      print('Lote de café creado exitosamente, ID: $loteCafeId');
+      return loteCafeId; // Retornar solo el _id
+    } else {
+      print('Error al crear el lote: ${response.statusCode}');
+      return null;
+    }
+  } catch (e) {
+    print('Error: $e');
+    return null;
+  }
+}
+
 }

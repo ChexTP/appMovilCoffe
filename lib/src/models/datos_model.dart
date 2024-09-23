@@ -1,8 +1,7 @@
-import 'package:app_movil_coffe/src/models/seguimiento_model.dart';
 
 class Datos {
   final String id;
-  final Seguimiento seguimiento;
+  final String seguimiento;
   final String temperaturaAmbiente;
   final String temperaturaSensor;
   final String maquina;
@@ -25,7 +24,7 @@ class Datos {
   factory Datos.fromJson(Map<String, dynamic> json) {
     return Datos(
       id: json['_id'],
-      seguimiento: json['seguimiento'], // Si el ID está incluido en el JSON
+      seguimiento: json['seguimiento'],
       temperaturaAmbiente: json['temperaturaAmbiente'],
       temperaturaSensor: json['temperaturaSensor'],
       maquina: json['maquina'],
@@ -33,7 +32,7 @@ class Datos {
       motor: json['motor'],
       fecha: DateTime.parse(json['fecha']),
     );
-  }
+  } 
 
   // Método para convertir una instancia de Dato a JSON
   Map<String, dynamic> toJson() {

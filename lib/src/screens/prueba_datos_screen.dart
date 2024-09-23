@@ -1,6 +1,7 @@
 // Importamos el controlador
 // import 'package:app_movil_coffe/src/controllers/tipo_cafe_controller.dart';
 import 'package:app_movil_coffe/src/controllers/lote_cafe_controller.dart';
+import 'package:app_movil_coffe/src/controllers/seguimiento_controller.dart';
 import 'package:app_movil_coffe/src/controllers/usuario_controller.dart';
 // import 'package:app_movil_coffe/src/controllers/tipo_proceso_controller.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class _DatosScreenState extends State<DatosScreen> {
   // final TipoProcesoService _tipoProcesoService = TipoProcesoService(); // Instancia del controlador
   // final VariedadesService _variedadesService = VariedadesService();
 // final UsuarioService _usuarioService = UsuarioService();
-  final LoteCafeService _loteCafeService = LoteCafeService();
+  // final LoteCafeService _loteCafeService = LoteCafeService();
+  final SeguimientoService _seguimientoService = SeguimientoService();
 
   @override
   void initState() {
@@ -27,7 +29,8 @@ class _DatosScreenState extends State<DatosScreen> {
     // _tipoProcesoService.getAllTipoProcesos(); // Llama a la función fetchMaquinas() del servicio
     // _variedadesService.getAllVariedades();
     // _usuarioService.getAllProveedores();
-    _loteCafeService.getAllLotesCafe();
+    // _loteCafeService.getAllLotesCafe();
+    _seguimientoService.getSeguimientoByMaquinaId('66ba25c376b1aba0f6ef93cc');
   }
 
   @override

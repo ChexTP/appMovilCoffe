@@ -94,21 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ? const Center(child: Text('No se encontraron máquinas'))
               : Column(
                   children: [
-                    // Center(
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(8.0),
-                    //     child: CircleAvatar(
-                    //       radius: 90,
-                    //       backgroundColor: const Color.fromARGB(255, 41, 28, 171),
-                    //       child: Image.asset(
-                    //         'assets/logo.png',
-                    //         height: 120,
-                    //         width: 120,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    // SizedBox(height: 30),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -139,19 +124,36 @@ class _HomeScreenState extends State<HomeScreen> {
                               final maquina = maquinas[index];
                               return GestureDetector(
                                 onTap: (){
-                                  if (maquina.estado=='Activo') {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeMaquinaScreen(maquina:maquina)));
-                                  } else {
+                                  if (maquina.estado=='Inactivo') {
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeScreen(maquina:maquina)));
+                                    
+                                  }else if(maquina.estado=='En Mantenimiento'){
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: Text('Máquina no disponible'),
+                                          content: Text('La máquina no está disponible en este momento por mantenimiento.'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop(); // Cerrar el cuadro de diálogo
+                                              },
+                                              child: Text('Aceptar'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }else {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeMaquinaScreen(maquina:maquina)));
                                   }
                                   
                                 },
-                                child: buildCard(
-                                  
-                                  maquina.nombre,
-                                  maquina.estado == 'Activo',
-                                ),
-                              );
+                                child: 
+                                  buildCard(maquina.idInterno, maquina.estado)
+                                );
+                              
                             },
                           ),
                         ),

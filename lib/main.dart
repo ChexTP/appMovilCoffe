@@ -1,6 +1,6 @@
 import 'package:app_movil_coffe/src/provider/user_provider.dart';
 import 'package:app_movil_coffe/src/screens/login_screen.dart';
-import 'package:app_movil_coffe/src/screens/prueba_datos_screen.dart';
+// import 'package:app_movil_coffe/src/screens/prueba_datos_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +20,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, home: DatosScreen());
+        debugShowCheckedModeBanner: false, home: LoginScreen());
   }
 } 
