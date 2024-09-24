@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 Card buildCard(String title, String estado) {
-
   Color colorEstado(String status) {
-  switch (status) {
-    case 'Activo':
-      return Colors.green;
-    case 'Inactivo':
-      return Colors.grey;
-    case 'En Mantenimiento':
-      return Colors.orange;
-    default:
-      return Colors.white; // Retorna un color por defecto si el estado no coincide
+    switch (status) {
+      case 'Activo':
+        return Colors.green;
+      case 'Inactivo':
+        return Colors.grey;
+      case 'En Mantenimiento':
+        return Colors.orange;
+      default:
+        return Colors
+            .white; // Retorna un color por defecto si el estado no coincide
+    }
   }
-}
-
 
   return Card(
     shape: RoundedRectangleBorder(
@@ -26,20 +25,18 @@ Card buildCard(String title, String estado) {
     ),
     margin: const EdgeInsets.all(8),
     elevation: 6,
-    child:  Stack(
+    child: Stack(
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                
-                Icons.settings_sharp,
-                color: Color.fromARGB(235, 34, 3, 207),
-                size: 60,)
-              ),
-            
+                padding: EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.settings_sharp,
+                  color: Color.fromARGB(235, 34, 3, 207),
+                  size: 60,
+                )),
             Center(
               child: Text(
                 title,
@@ -52,7 +49,7 @@ Card buildCard(String title, String estado) {
           ],
         ),
         Positioned(
-          top: 88,
+          top: 78,
           right: 63,
           child: CircleAvatar(
             radius: 13,
@@ -60,7 +57,6 @@ Card buildCard(String title, String estado) {
             child: CircleAvatar(
               radius: 10,
               backgroundColor: colorEstado(estado),
-                
             ),
           ),
         ),

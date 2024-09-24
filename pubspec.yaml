@@ -34,3 +34,7 @@ flutter:
   uses-material-design: true 
   assets:
     - assets/logo.png
+    - assets/letra-morada.png
+    - assets/letra-negra.png
+    - assets/letras-blancas.png
+

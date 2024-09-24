@@ -157,13 +157,13 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     'Propietario:',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.proveedor.nombreCompleto ??
                         'Cargando...',
-                    style: const TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 19),
                   )
                 ],
               ),
@@ -174,12 +174,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     "Tipo café:",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.variedad.nombre ?? 'Cargando...',
-                    style: const TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 19),
                   )
                 ],
               ),
@@ -191,7 +191,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     "Tipo Proceso:",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Flexible(
@@ -199,7 +199,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       seguimiento?.loteCafe.tipoProceso.nombre ?? 'Cargando...',
                       softWrap: true,
                       overflow: TextOverflow.visible,
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 18),
                     ),
                   )
                 ],
@@ -212,10 +212,10 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      
                       const Text(
                         "Fecha y hora de inicio de proceso:",
-                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -223,11 +223,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         seguimiento != null
                             ? '${seguimiento!.fecha.day}/${seguimiento!.fecha.month}/${seguimiento!.fecha.year} ${seguimiento!.fecha.hour}:${seguimiento!.fecha.minute}'
                             : 'Cargando...',
-                        style: const TextStyle(fontSize: 20, ),
+                        style: const TextStyle(
+                          fontSize: 19,
+                        ),
                       )
                     ],
                   ),
-                  
                 ],
               ),
               const SizedBox(height: 35),
@@ -242,10 +243,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration:  BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.green
-                        ),
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.green),
                         child: const Icon(
                           Icons.air,
                           size: 40,
@@ -256,7 +255,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       const Text(
                         "Temperatura ambiente",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Container(
@@ -269,8 +268,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         child: Center(
                           child: Text(
                             seguimiento?.datos?.isNotEmpty == true
-                              ? seguimiento!.datos!.last.temperaturaAmbiente
-                              : '00',
+                                ? seguimiento!.datos!.last.temperaturaAmbiente
+                                : '00',
                             // seguimiento?.datos?.last.id,
                             style: const TextStyle(fontSize: 25),
                           ),
@@ -284,10 +283,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.green
-                        ),
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.green),
                         child: const Icon(
                           Icons.settings,
                           size: 40,
@@ -298,7 +295,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       const Text(
                         "Temperatura interna",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Container(
@@ -311,8 +308,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         child: Center(
                           child: Text(
                             seguimiento?.datos?.isNotEmpty == true
-                              ? seguimiento!.datos!.last.temperaturaSensor
-                              : '00',
+                                ? seguimiento!.datos!.last.temperaturaSensor
+                                : '00',
                             style: const TextStyle(fontSize: 25),
                           ),
                         ),
@@ -331,23 +328,40 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   Row(
                     children: [
-                      SizedBox(height: 10.0,width: 30.0 ,
-                        child: DecoratedBox(decoration: BoxDecoration(
+                      SizedBox(
+                        height: 10.0,
+                        width: 30.0,
+                        child: DecoratedBox(
+                            decoration: BoxDecoration(
                           color: Colors.blue,
-                        )),),
-                      SizedBox(width: 5,),
-                      Text('Temperatura ambiente'),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'Temperatura ambiente',
+                        style: TextStyle(fontSize: 11),
+                      ),
                     ],
                   ),
-                  
                   Row(
                     children: [
-                      SizedBox(height: 10.0,width: 30.0 ,
-                        child: DecoratedBox(decoration: BoxDecoration(
+                      SizedBox(
+                        height: 10.0,
+                        width: 30.0,
+                        child: DecoratedBox(
+                            decoration: BoxDecoration(
                           color: Colors.red,
-                        )),),
-                      SizedBox(width: 5,),
-                      Text('Temperatura interna'),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'Temperatura interna',
+                        style: TextStyle(fontSize: 11),
+                      ),
                     ],
                   )
                 ],

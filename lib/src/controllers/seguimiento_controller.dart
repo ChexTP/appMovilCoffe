@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class SeguimientoService {
   Future<Seguimiento> getSeguimientoByMaquinaId(String idMaquina) async {
 
-    final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api"; 
+    const String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api"; 
 
     try {
       
@@ -34,7 +34,7 @@ class SeguimientoService {
 Future<String?> crearSeguimiento(
     String maquina, String loteCafe, String operador,) async {
   // URL de tu API
-  final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api";  // Reemplaza con tu URL
+  const String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api";  // Reemplaza con tu URL
 
   // Cuerpo de la solicitud
   final Map<String, dynamic> body = {
