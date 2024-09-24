@@ -219,10 +219,11 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       ),
                       const SizedBox(width: 8),
                       Text(
+                        textAlign: TextAlign.center,
                         seguimiento != null
                             ? '${seguimiento!.fecha.day}/${seguimiento!.fecha.month}/${seguimiento!.fecha.year} ${seguimiento!.fecha.hour}:${seguimiento!.fecha.minute}'
                             : 'Cargando...',
-                        style: const TextStyle(fontSize: 25),
+                        style: const TextStyle(fontSize: 20, ),
                       )
                     ],
                   ),
@@ -241,9 +242,9 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration: const BoxDecoration(
+                        decoration:  BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.green,
+                          color: Colors.green
                         ),
                         child: const Icon(
                           Icons.air,
@@ -271,7 +272,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                               ? seguimiento!.datos!.last.temperaturaAmbiente
                               : '00',
                             // seguimiento?.datos?.last.id,
-                            style: TextStyle(fontSize: 25),
+                            style: const TextStyle(fontSize: 25),
                           ),
                         ),
                       ),
@@ -283,9 +284,9 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.green,
+                          color: Colors.green
                         ),
                         child: const Icon(
                           Icons.settings,
@@ -312,7 +313,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                             seguimiento?.datos?.isNotEmpty == true
                               ? seguimiento!.datos!.last.temperaturaSensor
                               : '00',
-                            style: TextStyle(fontSize: 25),
+                            style: const TextStyle(fontSize: 25),
                           ),
                         ),
                       ),
@@ -325,6 +326,32 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
               // Grafica Lineal
               // if (seguimiento != null)
               LinealCharts(datos: seguimiento?.datos),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(height: 10.0,width: 30.0 ,
+                        child: DecoratedBox(decoration: BoxDecoration(
+                          color: Colors.blue,
+                        )),),
+                      SizedBox(width: 5,),
+                      Text('Temperatura ambiente'),
+                    ],
+                  ),
+                  
+                  Row(
+                    children: [
+                      SizedBox(height: 10.0,width: 30.0 ,
+                        child: DecoratedBox(decoration: BoxDecoration(
+                          color: Colors.red,
+                        )),),
+                      SizedBox(width: 5,),
+                      Text('Temperatura interna'),
+                    ],
+                  )
+                ],
+              ),
               const SizedBox(height: 25),
 
               // Switch para activar/desactivar el temporizador.

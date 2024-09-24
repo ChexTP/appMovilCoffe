@@ -1,8 +1,8 @@
 // Importamos el controlador
 // import 'package:app_movil_coffe/src/controllers/tipo_cafe_controller.dart';
-import 'package:app_movil_coffe/src/controllers/lote_cafe_controller.dart';
+// import 'package:app_movil_coffe/src/controllers/lote_cafe_controller.dart';
 import 'package:app_movil_coffe/src/controllers/seguimiento_controller.dart';
-import 'package:app_movil_coffe/src/controllers/usuario_controller.dart';
+// import 'package:app_movil_coffe/src/controllers/usuario_controller.dart';
 // import 'package:app_movil_coffe/src/controllers/tipo_proceso_controller.dart';
 import 'package:flutter/material.dart';
 
