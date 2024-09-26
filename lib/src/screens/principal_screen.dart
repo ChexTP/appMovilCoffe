@@ -17,7 +17,7 @@ class _PrincipalScreenState extends State<PrincipalScreen>
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) => const LoginScreen(),
       ));
@@ -53,9 +53,12 @@ class _PrincipalScreenState extends State<PrincipalScreen>
                   alignment: Alignment.topCenter,
                   child: FadeAnimation(
                       1.5,
-                      Image.asset(
-                        'assets/logo.png',
-                        scale: 0.9,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          'assets/letras-blancas.png',
+                          scale: 0.9,
+                        ),
                       )),
                 ),
               ),

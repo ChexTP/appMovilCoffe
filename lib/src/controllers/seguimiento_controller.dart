@@ -31,40 +31,64 @@ class SeguimientoService {
 
 
 
-Future<String?> crearSeguimiento(
+  Future<String?> crearSeguimiento(
     String maquina, String loteCafe, String operador,) async {
-  // URL de tu API
-  final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api";  // Reemplaza con tu URL
+    // URL de tu API
+    final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api";  // Reemplaza con tu URL
 
-  // Cuerpo de la solicitud
-  final Map<String, dynamic> body = {
-    'maquina': maquina,
-    'loteCafe': loteCafe,
-    'operador': operador,
-    // Agrega cualquier otro campo necesario aquí
-  };
+    // Cuerpo de la solicitud
+    final Map<String, dynamic> body = {
+      'maquina': maquina,
+      'loteCafe': loteCafe,
+      'operador': operador,
+      // Agrega cualquier otro campo necesario aquí
+    };
+    try {
+      // Envía la solicitud POST
+      final response = await http.post(Uri.parse('$baseUrl/seguimiento'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(body),
+      ); 
 
-  try {
-    // Envía la solicitud POST
-    final response = await http.post(Uri.parse('$baseUrl/seguimiento'),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(body),
-    ); 
-
-    if (response.statusCode == 201) {
-      final responseData = jsonDecode(response.body);
-      final seguimiento = responseData;
-      print('Seguimiento creado correctamente');
-      // print(seguimiento);
-      return seguimiento;
-    } else {
-      print('Error al crear seguimiento: ${response.body}');
+      if (response.statusCode == 201) {
+        final responseData = jsonDecode(response.body);
+        final seguimiento = responseData;
+        print('Seguimiento creado correctamente');
+        // print(seguimiento);
+        return seguimiento;
+      } else {
+        print('Error al crear seguimiento: ${response.body}');
+        return null;
+      }
+    } catch (e) {
+      print('Error en la solicitud: $e');
       return null;
     }
-  } catch (e) {
-    print('Error en la solicitud: $e');
-    return null;
   }
-}
+
+  Future<String?> finishSeguimiento(String idSeguimiento) async {
+    // URL de tu API
+    final String baseUrl = "https://proyecto-sena-backend-s666.onrender.com/api";  // Reemplaza con tu URL
+
+    try {
+      // Envía la solicitud PUT
+      final response = await http.put(
+        Uri.parse('$baseUrl/seguimiento/finalizar/$idSeguimiento'),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        print(responseData['message']); // Muestra el mensaje de éxito
+        return responseData['message'];
+      } else {
+        print('Error al finalizar seguimiento: ${response.body}');
+        return null;
+      }
+    } catch (e) {
+      print('Error en la solicitud: $e');
+      return null;
+    }
+  }
 
 }

@@ -125,7 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               return GestureDetector(
                                 onTap: (){
                                   if (maquina.estado=='Inactivo') {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>InformeScreen(maquina:maquina)));
+                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>InformeScreen(maquina:maquina)),
+                                    (Route<dynamic> route) => false,
+                                    );
                                     
                                   }else if(maquina.estado=='En Mantenimiento'){
                                     showDialog(

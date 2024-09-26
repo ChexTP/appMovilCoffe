@@ -1,4 +1,5 @@
 import 'dart:async'; // Importa dart:async para Timer
+import 'package:app_movil_coffe/src/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:app_movil_coffe/src/Widgets/curva_appbar.dart';
@@ -121,6 +122,17 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
               usuario!.nombreCompleto,
               style: const TextStyle(fontSize: 35, color: Colors.white),
             ),
+            leading: IconButton(
+                onPressed: (){
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()),
+                    (Route<dynamic> route) =>
+                        false, // Esto eliminará todas las pantallas anteriores
+                  );
+                }, 
+                icon: Icon(Icons.arrow_back_ios_new)),
             actions: [
               Padding(
                 padding: const EdgeInsets.only(top: 1, right: 20),
@@ -157,13 +169,13 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     'Propietario:',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.proveedor.nombreCompleto ??
                         'Cargando...',
-                    style: const TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 19),
                   )
                 ],
               ),
@@ -174,12 +186,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     "Tipo café:",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Text(
                     seguimiento?.loteCafe.variedad.nombre ?? 'Cargando...',
-                    style: const TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 19),
                   )
                 ],
               ),
@@ -191,7 +203,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   const Text(
                     "Tipo Proceso:",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Flexible(
@@ -199,7 +211,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       seguimiento?.loteCafe.tipoProceso.nombre ?? 'Cargando...',
                       softWrap: true,
                       overflow: TextOverflow.visible,
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 18),
                     ),
                   )
                 ],
@@ -212,10 +224,10 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      
                       const Text(
                         "Fecha y hora de inicio de proceso:",
-                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -223,11 +235,12 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         seguimiento != null
                             ? '${seguimiento!.fecha.day}/${seguimiento!.fecha.month}/${seguimiento!.fecha.year} ${seguimiento!.fecha.hour}:${seguimiento!.fecha.minute}'
                             : 'Cargando...',
-                        style: const TextStyle(fontSize: 20, ),
+                        style: const TextStyle(
+                          fontSize: 19,
+                        ),
                       )
                     ],
                   ),
-                  
                 ],
               ),
               const SizedBox(height: 35),
@@ -242,10 +255,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration:  BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.green
-                        ),
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.green),
                         child: const Icon(
                           Icons.air,
                           size: 40,
@@ -256,7 +267,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       const Text(
                         "Temperatura ambiente",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Container(
@@ -269,8 +280,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         child: Center(
                           child: Text(
                             seguimiento?.datos?.isNotEmpty == true
-                              ? seguimiento!.datos!.last.temperaturaAmbiente
-                              : '00',
+                                ? seguimiento!.datos!.last.temperaturaAmbiente
+                                : '00',
                             // seguimiento?.datos?.last.id,
                             style: const TextStyle(fontSize: 25),
                           ),
@@ -284,10 +295,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       Container(
                         height: 80,
                         width: 80,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.green
-                        ),
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.green),
                         child: const Icon(
                           Icons.settings,
                           size: 40,
@@ -298,7 +307,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       const Text(
                         "Temperatura interna",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Container(
@@ -311,8 +320,8 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                         child: Center(
                           child: Text(
                             seguimiento?.datos?.isNotEmpty == true
-                              ? seguimiento!.datos!.last.temperaturaSensor
-                              : '00',
+                                ? seguimiento!.datos!.last.temperaturaSensor
+                                : '00',
                             style: const TextStyle(fontSize: 25),
                           ),
                         ),
@@ -331,36 +340,60 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                 children: [
                   Row(
                     children: [
-                      SizedBox(height: 10.0,width: 30.0 ,
-                        child: DecoratedBox(decoration: BoxDecoration(
+                      SizedBox(
+                        height: 10.0,
+                        width: 30.0,
+                        child: DecoratedBox(
+                            decoration: BoxDecoration(
                           color: Colors.blue,
-                        )),),
-                      SizedBox(width: 5,),
-                      Text('Temperatura ambiente'),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'Temperatura ambiente',
+                        style: TextStyle(fontSize: 11),
+                      ),
                     ],
                   ),
-                  
                   Row(
                     children: [
-                      SizedBox(height: 10.0,width: 30.0 ,
-                        child: DecoratedBox(decoration: BoxDecoration(
+                      SizedBox(
+                        height: 10.0,
+                        width: 30.0,
+                        child: DecoratedBox(
+                            decoration: BoxDecoration(
                           color: Colors.red,
-                        )),),
-                      SizedBox(width: 5,),
-                      Text('Temperatura interna'),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'Temperatura interna',
+                        style: TextStyle(fontSize: 11),
+                      ),
                     ],
                   )
                 ],
               ),
               const SizedBox(height: 25),
-
+              const Center(
+                child: Text(
+                  'Finalizar proceso',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                  )
+              ),
               // Switch para activar/desactivar el temporizador.
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     'Temporizador',
-                    style: TextStyle(fontSize: 14),
+                    style: TextStyle(fontSize: 18),
                   ),
                   const SizedBox(width: 10),
                   Switch(
@@ -411,8 +444,7 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                       ),
                     ),
                   ),
-                ),
-              const SizedBox(height: 10),
+                ),    
               // Botón para iniciar el proceso.
               Center(
                 child: SizedBox(
@@ -422,7 +454,30 @@ class _InformeMaquinaScreenState extends State<InformeMaquinaScreen> {
                     backgroundColor: const Color.fromARGB(255, 41, 28, 171),
                     child: Center(
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          final seguimientoData = await SeguimientoService().finishSeguimiento(seguimiento!.id);
+                          print(seguimientoData);
+                          Navigator.of(context).pushAndRemoveUntil(
+                            PageRouteBuilder(
+                              settings: RouteSettings(name: 'HomeScreen'), // Agregar settings aquí
+                              pageBuilder: (context, animation, secondaryAnimation) => const HomeScreen(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                const begin = Offset(1.0, 0.0); // Comienza desde la derecha
+                                const end = Offset.zero; // Termina en la posición actual
+                                const curve = Curves.ease;
+
+                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                  position: offsetAnimation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                            (Route<dynamic> route) => false, // Remover todas las rutas anteriores
+                          );
+                        },
                         icon: const Icon(
                           Icons.power_settings_new_rounded,
                           color: Colors.white,
